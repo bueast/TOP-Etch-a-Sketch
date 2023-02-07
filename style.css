@@ -27,6 +27,7 @@ body {
 }
 
 .grid-box {    
+    box-sizing: border-box;
     background-color: blueviolet;
     border: 2px solid black;
     width: calc(100% / 16);
