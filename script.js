@@ -1,6 +1,6 @@
 const screen = document.querySelector('.screen');
 let selectedColor = 'black';
-let gridSize = 16;
+let gridSize = 32;
 
 function createGrids() {
   screen.innerHTML = ""; // remove previous grids
@@ -67,6 +67,7 @@ wildButton.addEventListener('click', () => { //when we click on .wild, run the f
       square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`; //each square background will be added with this code
     });
   });
+
 });
 
 
