@@ -31,7 +31,7 @@ newGridButton.addEventListener('click', () => {  //when we click on the button, 
 
 
 const resetButton = document.querySelector('.reset'); // link to the button .reset
-resetButton.addEventListener('click', () => {    //When we click the button, it...
+resetButton.addEventListener('click', () => {    //when we click the button, it...
   const gridBoxes = document.querySelectorAll('.grid-box'); //selects all divs called .grid-box
   gridBoxes.forEach(gridBox => {  //creates a var = gridBox and uses that to change the color of each box back to original
     gridBox.style.backgroundColor = 'blueviolet';
@@ -39,7 +39,35 @@ resetButton.addEventListener('click', () => {    //When we click the button, it.
 });
 
 const colorPicker = document.querySelector(".color-picker"); //selects the div .color-picker
-colorPicker.addEventListener("input", function () {  //When the input is is selected. Arrow function won't work for some reason?
+colorPicker.addEventListener("input", function () {  //when the input is is selected. Arrow function won't work for some reason?
   selectedColor = this.value; //selectedColor variable of black is replaced with this.value
 });
+
+const backgroundColorPicker = document.querySelector(".background"); //selects the button .background
+backgroundColorPicker.addEventListener("input", function () {  //each time we change a color (input), tell the computer to do...
+  document.querySelectorAll('.grid-box').forEach((gridBox) => {  //finds all the .grid-box divs, then for each gridBox...
+    gridBox.style.backgroundColor = this.value; //style them with this.value
+  });
+});
+
+
+const wildButton = document.querySelector('.wild'); //selects the div .wild
+const squares = document.querySelectorAll('.grid-box'); //selects all divs that have a class .grid-box
+
+
+wildButton.addEventListener('click', () => { //when we click on .wild, run the function...
+  squares.forEach((square) => {  //for each time we get to .grid-box, for each one...
+    square.removeEventListener('mouseenter', () => { //removes the event listener before we get to the div so...
+      square.style.backgroundColor = selectedColor; //a new color is selected
+    });
+    square.addEventListener('mouseenter', () => { //now when the mouse enters, it creates a new rgb value with Math.floor(Math.random)
+      let red = Math.floor(Math.random() * 256); //Math.floor() always rounds a number down
+      let green = Math.floor(Math.random() * 256);
+      let blue = Math.floor(Math.random() * 256);
+      square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`; //each square background will be added with this code
+    });
+  });
+});
+
+
 
