@@ -50,12 +50,13 @@ backgroundColorPicker.addEventListener("input", function () {  //each time we ch
   });
 });
 
-
-const wildButton = document.querySelector('.wild'); //selects the div .wild
-const squares = document.querySelectorAll('.grid-box'); //selects all divs that have a class .grid-box
+  const wildButton = document.querySelector('.wild'); //selects the div .wild
 
 
 wildButton.addEventListener('click', () => { //when we click on .wild, run the function...
+
+const squares = document.querySelectorAll('.grid-box'); //selects all divs that have a class .grid-box. Declaring const here allows the wild button to work with any grid size
+
   squares.forEach((square) => {  //for each time we get to .grid-box, for each one...
     square.removeEventListener('mouseenter', () => { //removes the event listener before we get to the div so...
       square.style.backgroundColor = selectedColor; //a new color is selected
