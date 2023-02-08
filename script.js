@@ -23,7 +23,7 @@ createGrids();  //callback for the above function
 
 const newGridButton = document.querySelector('.new-grid'); //link to the button .new-grid
 newGridButton.addEventListener('click', () => {  //when we click on the button, the function here plays...
-  gridSize = prompt("Enter grid size: ", gridSize); //prompt to enter your grid size
+  gridSize = prompt("Enter grid size: ", gridSize); //prompt to enter your grid size. Changes the gridSize variable at the top to whatever we enter in the prompt
   gridSize = Math.min(gridSize, 100); // limit the grid size to 100
   createGrids(); //run the updated createGrids() function
 });
